@@ -17,11 +17,19 @@ public class DishService {
         return this.repository.findDishById(id).orElseThrow(() -> new Exception("Dish not found"));
     }
 
+    public Dish findDishByName (String name) throws Exception {
+        return this.repository.findDishByName(name).orElseThrow(() -> new Exception("Dish not found"));
+    }
+
     public List<Dish> findAll() {
         return repository.findAll();
     }
 
     public Dish saveDish (Dish dish) {
         return this.repository.save(dish);
+    }
+
+    public void deleteDishById (Long id) {
+        this.repository.deleteById(id);
     }
 }

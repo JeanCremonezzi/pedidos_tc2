@@ -28,4 +28,28 @@ public class DishController {
         List<Dish> dishes = this.dishService.findAll();
         return new ResponseEntity<>(dishes, HttpStatus.OK);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteDish(@PathVariable Long id) {
+        this.dishService.deleteDishById(id);
+        return new ResponseEntity<>("Dish deleted!", HttpStatus.OK);
+    }
+
+    @GetMapping("/id/{id}")
+    public ResponseEntity<Dish> findById(@PathVariable Long id) throws Exception {
+        Dish dish = this.dishService.findDishById(id);
+        return new ResponseEntity<>(dish, HttpStatus.OK);
+    }
+
+    @GetMapping("/name")
+    public ResponseEntity<Dish> findByName(@RequestParam String name) throws Exception {
+        Dish dish = this.dishService.findDishByName(name);
+        return new ResponseEntity<>(dish, HttpStatus.OK);
+    }
+
+    @PutMapping
+    public ResponseEntity<Dish> updateDish(@RequestBody Dish dish) {
+        Dish updatedDish = this.dishService.saveDish(dish);
+        return new ResponseEntity<>(dish, HttpStatus.OK);
+    }
 }
