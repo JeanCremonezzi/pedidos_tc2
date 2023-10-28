@@ -17,7 +17,7 @@ public class DishController {
     private DishService dishService;
 
     @PostMapping
-    public ResponseEntity<Dish> createDish(@RequestBody Dish dish) {
+    public ResponseEntity<Dish> createDish(@RequestBody Dish dish) throws Exception {
         Dish newDish = dishService.saveDish(dish);
 
         return new ResponseEntity<>(newDish, HttpStatus.CREATED);
@@ -30,9 +30,9 @@ public class DishController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteDish(@PathVariable Long id) {
+    public ResponseEntity<String> deleteDish(@PathVariable Long id) throws Exception {
         this.dishService.deleteDishById(id);
-        return new ResponseEntity<>("Dish deleted!", HttpStatus.OK);
+        return new ResponseEntity<>("Dish deleted", HttpStatus.OK);
     }
 
     @GetMapping("/id/{id}")
@@ -48,7 +48,7 @@ public class DishController {
     }
 
     @PutMapping
-    public ResponseEntity<Dish> updateDish(@RequestBody Dish dish) {
+    public ResponseEntity<Dish> updateDish(@RequestBody Dish dish) throws Exception {
         Dish updatedDish = this.dishService.saveDish(dish);
         return new ResponseEntity<>(dish, HttpStatus.OK);
     }
