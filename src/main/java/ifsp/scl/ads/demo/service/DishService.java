@@ -16,11 +16,11 @@ public class DishService {
     private DishRepository repository;
 
     public Dish findDishById (Long id) throws Exception {
-        return this.repository.findDishById(id).orElseThrow(() -> new EntityNotFoundException("Dish not found"));
+        return repository.findDishById(id).orElseThrow(() -> new EntityNotFoundException("Dish not found"));
     }
 
     public Dish findDishByName (String name) throws Exception {
-        return this.repository.findDishByName(name).orElseThrow(() -> new EntityNotFoundException("Dish not found"));
+        return repository.findDishByName(name).orElseThrow(() -> new EntityNotFoundException("Dish not found"));
     }
 
     public List<Dish> findAll() {
@@ -32,11 +32,11 @@ public class DishService {
             throw new DuplicateKeyException("Name already in use");
         });
 
-        return this.repository.save(dish);
+        return repository.save(dish);
     }
 
     public void deleteDishById (Long id) throws Exception {
         repository.findDishById(id).orElseThrow(() -> new EntityNotFoundException("Dish not found"));
-        this.repository.deleteById(id);
+        repository.deleteById(id);
     }
 }
