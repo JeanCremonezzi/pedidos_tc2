@@ -1,11 +1,8 @@
 package ifsp.scl.ads.demo.domain.order;
 
-import java.util.Arrays;
-
 public enum Status {
     PENDING("Pending"), // PENDENTE
     PREPARING("Preparing"), // PREPARANDO
-    FINISHED("Finished"), // FINALIZADO
     IN_ROUTE("In route"), // EM ROTA DE ENTREGA
     DELIVERED("Delivered"); // ENTREGUE
 

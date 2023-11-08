@@ -59,7 +59,7 @@ public class OrderController {
     }
 
     @PutMapping
-    @Operation(summary = "Update a Order")
+    @Operation(summary = "Update a Order Status")
     public ResponseEntity<Order> updateOrder(@RequestBody @NotNull Order order) throws Exception {
         Order foundOrder = orderService.findOrderById(order.getId());
 
@@ -67,7 +67,11 @@ public class OrderController {
             foundOrder.setDelivered(new Date());
         }
 
+        foundOrder.setStatus(order.getStatus());
+
+        System.out.println(foundOrder);
+
         Order updatedOrder = orderService.saveOrder(foundOrder);
-        return new ResponseEntity<>(order, HttpStatus.OK);
+        return new ResponseEntity<>(updatedOrder, HttpStatus.OK);
     }
 }

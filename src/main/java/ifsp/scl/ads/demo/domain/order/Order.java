@@ -28,8 +28,4 @@ public class Order {
 
     @Enumerated(EnumType.STRING)
     private Status status = Status.PENDING;
-
-    public Double totalValue() {
-        return dishes.stream().mapToDouble(Dish::getPrice).sum();
-    }
 }
