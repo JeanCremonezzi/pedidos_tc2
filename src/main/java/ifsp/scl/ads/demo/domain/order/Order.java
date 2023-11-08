@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
 
 @Entity(name="orders")
 @Table(name="orders")
@@ -20,7 +20,7 @@ public class Order {
     private Long id;
 
     @ManyToMany
-    private Set<Dish> dishes;
+    private List<Dish> dishes;
 
     private Date requested;
 

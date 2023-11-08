@@ -69,8 +69,6 @@ public class OrderController {
 
         foundOrder.setStatus(order.getStatus());
 
-        System.out.println(foundOrder);
-
         Order updatedOrder = orderService.saveOrder(foundOrder);
         return new ResponseEntity<>(updatedOrder, HttpStatus.OK);
     }
