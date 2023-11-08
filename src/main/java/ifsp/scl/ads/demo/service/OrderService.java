@@ -19,8 +19,8 @@ public class OrderService {
         return repository.findOrderById(id).orElseThrow(() -> new EntityNotFoundException("Order not found"));
     }
 
-    public List<Order> findOrderByStatus (Status status) throws Exception {
-        return repository.findOrderByStatus(status);
+    public List<Order> findOrderByStatus (String status) throws Exception {
+        return repository.findOrderByStatus(Status.fromString(status));
     }
 
     public List<Order> findAll() {

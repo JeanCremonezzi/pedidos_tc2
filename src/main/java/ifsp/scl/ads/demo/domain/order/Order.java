@@ -4,9 +4,7 @@ import ifsp.scl.ads.demo.domain.dish.Dish;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.Set;
 
 @Entity(name="orders")

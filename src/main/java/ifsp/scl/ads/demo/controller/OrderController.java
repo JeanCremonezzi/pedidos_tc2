@@ -46,7 +46,7 @@ public class OrderController {
 
     @GetMapping("/status/{status}")
     @Operation(summary = "Get Orders by Status")
-    public ResponseEntity<List<Order>> findByStatus(@PathVariable Status status) throws Exception {
+    public ResponseEntity<List<Order>> findByStatus(@PathVariable String status) throws Exception {
         List<Order> orders = orderService.findOrderByStatus(status);
         return new ResponseEntity<>(orders, HttpStatus.OK);
     }
